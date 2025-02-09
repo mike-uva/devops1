@@ -16,7 +16,7 @@ jobs:
     - name: run docker
       run: |
         docker run -d -p 8080:8080 $REPO_NAME/$IMAGE_NAME:latest && \
-           sleep 5 && docker ps
+           docker ps %% sleep 5 
 
     - name: "Check files existence"
       uses: andstor/file-existence-action@v2
