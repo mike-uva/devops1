@@ -18,7 +18,7 @@ def add(student=None):
 
     inserted_student = students_collection.insert_one(student.to_dict())
     student.student_id = str(inserted_student.inserted_id)
-    return student.student_id
+    return 200, student.student_id
 
 
 def get_by_id(student_id=None, subject=None):
