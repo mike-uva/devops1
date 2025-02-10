@@ -6,8 +6,7 @@ db = client["university"]
 collection = db["students"]
 
 def add(student=None):
-    res = collection.find({"first_name": student.first_name, "last_name": student.last_name})
-    if res:
+    if collection.count_documents({"first_name": student.first_name, "last_name": student.last_name}, limit=1) != 0:
         return 'already exists', 409
 
     collection.insert(student.to_dict())
