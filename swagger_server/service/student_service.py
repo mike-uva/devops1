@@ -6,11 +6,11 @@ db = client["university"]
 collection = db["students"]
 
 def add(student=None):
-    res = collection.find({"first_name": student["first_name"], "last_name": student["last_name"]})
+    res = collection.find({"first_name": student.first_name, "last_name": student.last_name})
     if res:
         return 'already exists', 409
 
-    collection.insert(student)
+    collection.insert(student.to_dict())
     return student.student_id
 
 def get_by_id(student_id=None, subject=None):
@@ -19,7 +19,6 @@ def get_by_id(student_id=None, subject=None):
         return 'not found', 404
     print(student)
     return student
-
 
 def delete(student_id=None):
     student = collection.find_one({"student_id": student_id})
