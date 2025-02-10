@@ -3,7 +3,7 @@ import pymongo
 
 client = pymongo.MongoClient(os.environ['MONGO_URI'])
 db = client["university"]
-collection = db["students"]
+collection = db["students1"]
 
 def add(student=None):
     if collection.find_one({"first_name": student.first_name, "last_name": student.last_name}) is not None:
