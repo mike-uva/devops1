@@ -9,8 +9,9 @@ def add(student=None):
     if collection.find_one({"first_name": student.first_name, "last_name": student.last_name}) is not None:
         return 'already exists', 409
 
-    collection.insert_one(student.to_dict())
-    return student.student_id
+
+    id = collection.insert_one(student.to_dict()).inserted_id
+    return str(id), 200
 
 def get_by_id(student_id=None, subject=None):
     student = collection.find_one({"student_id": student_id})
