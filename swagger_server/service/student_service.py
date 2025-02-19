@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 # Could move this to .env file
-mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+mongo_uri = os.getenv("MONGO_URI")
 client = MongoClient(mongo_uri)
 db = client.student_db
 students_collection = db.students
