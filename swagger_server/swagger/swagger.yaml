@@ -26,7 +26,6 @@ paths:
         explode: false
         schema:
           type: string
-          format: uuid
       responses:
         "200":
           description: Successful operation
@@ -52,8 +51,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: number
-          format: integer
+          type: string
       responses:
         "200":
           description: Successful operation
@@ -86,7 +84,6 @@ paths:
             application/json:
               schema:
                 type: string
-                format: uuid
                 x-content-type: application/json
         "400":
           description: "invalid input, object invalid"
@@ -102,7 +99,7 @@ components:
       type: object
       properties:
         student_id:
-          type: integer
+          type: string
         first_name:
           type: string
         last_name:
