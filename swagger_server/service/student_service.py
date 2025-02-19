@@ -1,4 +1,3 @@
-```
 import os
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -40,4 +39,3 @@ def delete(student_id=None):
         return 'not found', 404
 
     return student_id
-```
