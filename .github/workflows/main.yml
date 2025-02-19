@@ -30,7 +30,7 @@ jobs:
 
     - name: run docker
       run: |
-        docker compose -f docker-compose-build.yml up -d && \
+        docker compose up -d && \
         sleep 5 && docker ps
 
     - name: "Check files existence"
